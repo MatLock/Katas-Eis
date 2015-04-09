@@ -40,4 +40,9 @@ describe 'CharCounter' do
     dic.size.should be 0
   end    
 
+  it 'prueba para probar travis' do
+     dic = CharCounter.count('')
+     dic.size.should be 0
+  end
+
 end

@@ -3,10 +3,6 @@ require_relative '../model/char_counter.rb'
 
 describe 'CharCounter' do
   
-
-  it 'prueba' do
-	dic=CharCounter.count('holaa')
-  end
   it 'should return {a=>1} when string is a' do
     dic = CharCounter.count('a')
     dic['a'].should be 1
