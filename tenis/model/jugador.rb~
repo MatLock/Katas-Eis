@@ -7,7 +7,7 @@ class Jugador
 	end
 
 	def anotar()
-		@puntos += 15
+		@puntos = 15
 	end
 
 end
