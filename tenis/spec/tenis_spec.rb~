@@ -14,4 +14,11 @@ describe 'Jugador' do
 			jugador.anotar()
 			jugador.puntos.should eq 15
 		end
-endla p
+
+		it 'Al anotar un punto y tener 30 puntos, su puntaje nuevo debe ser 30' do
+			jugador = Jugador.new('Pepe')
+			jugador.puntos = 15
+			jugador.anotar()
+			jugador.puntos.should eq 30
+		end
+end
