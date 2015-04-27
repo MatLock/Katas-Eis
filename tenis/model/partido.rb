@@ -1,19 +1,30 @@
 class Partido
 	
-	attr_accessor :jugador1,:jugador2, :sets
+	attr_accessor :jugador1,:jugador2, :sets, :games, :ganador
 
 	def initialize()
 		@sets = Hash.new
+		@games = Hash.new
 		@jugador1
 		@jugador2
+		@ganador
+	end
+	
+	def iniciar(jugador1,jugador2)
+		@sets[jugador1.nombre] = 0	
+		@sets[jugador2.nombre] = 0	
+		@games[jugador1.nombre] = 0	
+		@games[jugador2.nombre] = 0	
+		@jugador1 = jugador1
+		@jugador2 = jugador2
 	end
 
 	def anotarSet(nombre)
-		if (@sets.has_key?(nombre))
-			@sets[nombre] = sets[nombre] + 1
-		else
-			@sets[nombre] = 1
-		end	
+			if(@sets[nombre] == 6)
+				aplicarReglaDeGame(nombre)			
+				return
+			end		
+		@sets[nombre] = @sets[nombre] + 1		
 	end
 
 	def puntosJugadorEnemigo(nombre)
@@ -36,6 +47,21 @@ class Partido
 		else
 			@jugador1.quitarVentaja()
 		end 
+	end
+
+	def aplicarReglaDeGame(nombre)
+			@games[nombre] = @games[nombre] + 1
+			if(@games[nombre] == 2)
+				@ganador = nombre
+			end
+		resetearPuntosySets()
+	end
+
+	def resetearPuntosySets()
+		@jugador1.reset()
+		@jugador2.reset()
+		@sets[@jugador1.nombre] = 0
+		@sets[@jugador2.nombre] = 0
 	end
 
 end

@@ -37,4 +37,9 @@ class Jugador
 		end		
 	end
 
+	def reset()
+		@puntos = 0
+		@ventaja = false
+	end
+
 end
