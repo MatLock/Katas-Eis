@@ -14,8 +14,8 @@ class Jugador
 			return
 		end
 		
-		if(@puntos == 45 && ventaja)
-			partido.anotarSet(self)
+		if(@puntos == 45 && (ventaja || partido.puntosJugadorEnemigo(@nombre) < 45))
+			partido.anotarSet(@nombre)
 			@puntos=0
 			return
 		end
