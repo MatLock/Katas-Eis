@@ -10,7 +10,7 @@ class Jugador
 
 	def anotar()
 		if(@puntos == 45 && partido.puntosJugadorEnemigo(@nombre) == 45)
-			@ventaja = true
+			aplicarReglaVentaja()
 			return
 		end
 		
@@ -23,6 +23,18 @@ class Jugador
 		if (@puntos < 45)
 			@puntos = @puntos + 15		
 		end
+	end
+
+	def quitarVentaja()
+		@ventaja = false
+	end
+
+	def aplicarReglaVentaja()
+		if not partido.ventajaJugadorEnemigo(@nombre) 			
+			@ventaja = true
+		else
+			partido.quitarVentajaJugadorEnemigo(@nombre)
+		end		
 	end
 
 end

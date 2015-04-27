@@ -23,4 +23,19 @@ class Partido
 		return @jugador1.puntos
 	end
 
+	def ventajaJugadorEnemigo(nombre)
+		if (nombre == @jugador1.nombre)
+			return @jugador2.ventaja
+		end
+		return @jugador1.ventaja
+	end
+
+	def quitarVentajaJugadorEnemigo(nombre)
+		if (nombre == @jugador1.nombre)
+			@jugador2.quitarVentaja()
+		else
+			@jugador1.quitarVentaja()
+		end 
+	end
+
 end

@@ -60,6 +60,22 @@ describe 'Jugador' do
 			jugador1.puntos.should eq 45
 		end
 
+			it 'Al anotar un punto y tener 45 puntos en caso de que el jugador enemigo tenga 45 puntos y tenga ventaja, al jugador
+				enemigo se le quitara la ventaja' do
+			partido = Partido.new()
+			jugador1 = Jugador.new('Pepa',partido)			
+			jugador2 = Jugador.new('Pepe',partido)
+            partido.jugador1 = jugador1
+			partido.jugador2 = jugador2			
+			jugador1.puntos = 45
+            jugador2.puntos = 45
+			jugador2.ventaja = true
+			jugador1.anotar()
+            jugador2.ventaja.should eq false			
+			jugador1.puntos.should eq 45
+			jugador2.puntos.should eq 45
+		end
+
 		it 'Al anotar un punto y tener 45 puntos, y el jugador enemigo no tiene ventaja, se ganara el set' do
 			partido = Partido.new()
 			jugador1 = Jugador.new('Pepa',partido)			
