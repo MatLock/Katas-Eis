@@ -8,7 +8,6 @@ ruby '2.2.0'
 gem 'thin' # or mongrel
 # gem 'trinidad', :platform => 'jruby'
 
-
 # Optional JSON codec (faster performance)
 # gem 'oj'
 
