@@ -1,0 +1,30 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/home/jorge/Escritorio/TP- Ing/proyecto-base-katas/batalla_naval/app/models/Tablero.rb": [
+        1,
+        null,
+        1,
+        6,
+        null,
+        null,
+        null
+      ]
+    },
+    "timestamp": 1430601652
+  },
+  "Cucumber Features": {
+    "coverage": {
+      "/home/jorge/Escritorio/TP- Ing/proyecto-base-katas/batalla_naval/app/models/Tablero.rb": [
+        1,
+        null,
+        1,
+        6,
+        null,
+        null,
+        null
+      ]
+    },
+    "timestamp": 1430601654
+  }
+}
