@@ -8,6 +8,7 @@ class Tablero
 	end
 
 	#las listas que se brindan como argumentos deben tener la misma longitud
+	#funciona para barcos chicos y largos (permite colocarlos de cualquier manera)
 	def ponerBarcoEn(coords,barco)
 		resultado = parsearCoordenadas(coords)
 		x = resultado[0]

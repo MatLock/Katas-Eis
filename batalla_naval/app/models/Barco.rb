@@ -5,12 +5,18 @@ class Barco
 
 	def recibirDisparo()
 	end
+
+	def initialize(nombre)
+		@nombre = nombre
+	end
 end
 
 
 class BarcoChico < Barco
 
-	def initialize(nombre)
-		@nombre = nombre
-	end
+end
+
+
+class BarcoLargo < Barco
+
 end

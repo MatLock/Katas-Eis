@@ -16,8 +16,16 @@ describe 'Tablero'  do
 
 	it 'Al agregar un barco chico en la posicion (x,y), la misma ya no debe estar ocupada' do
 		@tablero.ponerBarcoEn("(3:3)",BarcoChico.new("Foxtrox"))
-		expect(@tablero.mapa[3][3]).to be #
 		expect(@tablero.mapa[3][3].nombre).to eq "Foxtrox"
+	end
+
+
+
+	it "Al agregar un barco grande en las posiciones (x,y),(z,t), las mismas ya no deben estar vacias en el tablero" do
+		@tablero.ponerBarcoEn("(4:5),(4:6),(4:7)", BarcoLargo.new("Delta"))
+		expect(@tablero.mapa[4][5].nombre).to eq "Delta"
+		expect(@tablero.mapa[4][6].nombre).to eq "Delta"
+		expect(@tablero.mapa[4][7].nombre).to eq "Delta"
 	end
 
 end
