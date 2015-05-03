@@ -15,9 +15,9 @@ describe 'Tablero'  do
 	end
 
 	it 'Al agregar un barco chico en la posicion (x,y), la misma ya no debe estar ocupada' do
-		@tablero.putBarcoEn([3],[3],BarcoChico.new("Charlie"))
+		@tablero.ponerBarcoEn("(3:3)",BarcoChico.new("Foxtrox"))
 		expect(@tablero.mapa[3][3]).to be #
-		expect(@tablero.mapa[3][3].nombre).to eq "Charlie"
+		expect(@tablero.mapa[3][3].nombre).to eq "Foxtrox"
 	end
 
 end
