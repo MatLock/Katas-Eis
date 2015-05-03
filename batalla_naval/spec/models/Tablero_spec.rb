@@ -22,10 +22,10 @@ describe 'Tablero'  do
 
 
 	it "Al agregar un barco grande en las posiciones (x,y),(z,t), las mismas ya no deben estar vacias en el tablero" do
-		@tablero.ponerBarcoEn("(4:5),(4:6),(4:7)", BarcoLargo.new("Delta"))
-		expect(@tablero.mapa[4][5].nombre).to eq "Delta"
-		expect(@tablero.mapa[4][6].nombre).to eq "Delta"
-		expect(@tablero.mapa[4][7].nombre).to eq "Delta"
+		@tablero.ponerBarcoEn("(2:2),(3:3),(4:4)", BarcoLargo.new("Delta"))
+		expect(@tablero.mapa[2][2].nombre).to eq "Delta"
+		expect(@tablero.mapa[3][3].nombre).to eq "Delta"
+		expect(@tablero.mapa[4][4].nombre).to eq "Delta"
 	end
 
 end

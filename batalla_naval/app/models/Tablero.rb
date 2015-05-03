@@ -13,7 +13,7 @@ class Tablero
 		resultado = parsearCoordenadas(coords)
 		x = resultado[0]
 		y = resultado[1]
-		size = x.size - 1
+		size = x.size() - 1
 		for i in 0.. size
 			@mapa[x[i]] [y[i]] = barco
 		end
@@ -35,7 +35,12 @@ class Tablero
 		resultado = parsearCoordenadas(coord)
 		x = resultado[0]
 		y = resultado[1]
-		return mapa[x[0]][y[0]].nil?
+		size = x.size() - 1
+		boolean = false
+		for i in 0.. size
+			boolean = boolean || (mapa[x[i]][y[i]].eql? "water")
+		end	
+		return boolean
 	end
 
 end

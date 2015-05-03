@@ -12,3 +12,13 @@ end
 Then(/^position "(.*?)" is not empty$/) do |coord|
   @tablero.posicionVacia(coord).should eq false
 end
+
+Then(/^position "(.*?)" is empty$/) do |coord|
+  @tablero.posicionVacia(coord).should be true
+end
+
+
+Given(/^I create a large ship in position "(.*?)"$/) do |coords|
+  @tablero.ponerBarcoEn(coords,BarcoLargo.new("Delta"))
+end
+
