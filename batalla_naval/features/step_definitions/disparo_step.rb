@@ -16,8 +16,8 @@ Given(/^I shoot to position "(.*?)"$/) do |coord|
 end
 
 
-Then(/^I get "(.*?)"$/) do |arg1|
-  
+Then(/^I get "(.*?)"$/) do |water|
+  expect(@resultado).to eq water
 end
 
 

@@ -47,7 +47,7 @@ class Tablero
 		array = parsearCoordenadas(coord)
 		x = array[0][0]
 		y = array[0][0]
-		efectuarDisparo(x,y)
+		return efectuarDisparo(x,y)
 	end
 
 	def efectuarDisparo(x,y)

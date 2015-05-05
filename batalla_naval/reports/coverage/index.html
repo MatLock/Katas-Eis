@@ -14,7 +14,7 @@
       <img src="./assets/0.7.1/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2015-05-05T19:34:54-03:00">2015-05-05T19:34:54-03:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2015-05-05T19:41:15-03:00">2015-05-05T19:41:15-03:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -25,7 +25,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         5.1
+         5.3
        </span>
     </span> hits/line)
   </h2>
@@ -67,7 +67,7 @@
         <td>36</td>
         <td>36</td>
         <td>0</td>
-        <td>7.6</td>
+        <td>8.0</td>
       </tr>
       
     </tbody>
@@ -83,7 +83,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         5.1
+         5.3
        </span>
     </span> hits/line)
   </h2>
@@ -125,7 +125,7 @@
         <td>36</td>
         <td>36</td>
         <td>0</td>
-        <td>7.6</td>
+        <td>8.0</td>
       </tr>
       
     </tbody>
@@ -513,50 +513,50 @@
           <code class="ruby">	def parsearCoordenadas(coords)</code>
         </li>
       
-        <li class="covered" data-hits="12" data-linenumber="23">
-          <span class="hits">12</span>
+        <li class="covered" data-hits="13" data-linenumber="23">
+          <span class="hits">13</span>
           
           <code class="ruby">		array = coords.split(&quot;,&quot;)</code>
         </li>
       
-        <li class="covered" data-hits="12" data-linenumber="24">
-          <span class="hits">12</span>
+        <li class="covered" data-hits="13" data-linenumber="24">
+          <span class="hits">13</span>
           
           <code class="ruby">		coordsX = Array.new</code>
         </li>
       
-        <li class="covered" data-hits="12" data-linenumber="25">
-          <span class="hits">12</span>
+        <li class="covered" data-hits="13" data-linenumber="25">
+          <span class="hits">13</span>
           
           <code class="ruby">		coordsY = Array.new</code>
         </li>
       
-        <li class="covered" data-hits="12" data-linenumber="26">
-          <span class="hits">12</span>
+        <li class="covered" data-hits="13" data-linenumber="26">
+          <span class="hits">13</span>
           
           <code class="ruby">		i = 0</code>
         </li>
       
-        <li class="covered" data-hits="31" data-linenumber="27">
-          <span class="hits">31</span>
+        <li class="covered" data-hits="33" data-linenumber="27">
+          <span class="hits">33</span>
           
           <code class="ruby">		array.each{|e| coordsX[i] = e[1..e.length - 4].to_i</code>
         </li>
       
-        <li class="covered" data-hits="19" data-linenumber="28">
-          <span class="hits">19</span>
+        <li class="covered" data-hits="20" data-linenumber="28">
+          <span class="hits">20</span>
           
           <code class="ruby">					   coordsY[i] = e[3.. e.length - 2].to_i</code>
         </li>
       
-        <li class="covered" data-hits="19" data-linenumber="29">
-          <span class="hits">19</span>
+        <li class="covered" data-hits="20" data-linenumber="29">
+          <span class="hits">20</span>
           
           <code class="ruby">					   i = i + 1}</code>
         </li>
       
-        <li class="covered" data-hits="12" data-linenumber="30">
-          <span class="hits">12</span>
+        <li class="covered" data-hits="13" data-linenumber="30">
+          <span class="hits">13</span>
           
           <code class="ruby">		return [coordsX, coordsY]</code>
         </li>
@@ -657,28 +657,28 @@
           <code class="ruby">	def dispararEn(coord)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="47">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="2" data-linenumber="47">
+          <span class="hits">2</span>
           
           <code class="ruby">		array = parsearCoordenadas(coord)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="48">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="2" data-linenumber="48">
+          <span class="hits">2</span>
           
           <code class="ruby">		x = array[0][0]</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="49">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="2" data-linenumber="49">
+          <span class="hits">2</span>
           
           <code class="ruby">		y = array[0][0]</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="50">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="2" data-linenumber="50">
+          <span class="hits">2</span>
           
-          <code class="ruby">		efectuarDisparo(x,y)</code>
+          <code class="ruby">		return efectuarDisparo(x,y)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="51">
@@ -699,8 +699,8 @@
           <code class="ruby">	def efectuarDisparo(x,y)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="54">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="2" data-linenumber="54">
+          <span class="hits">2</span>
           
           <code class="ruby">		return mapa[x][y]</code>
         </li>
