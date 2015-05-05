@@ -26,6 +26,18 @@ describe 'Tablero'  do
 		expect(@tablero.mapa[2][2].nombre).to eq "Delta"
 		expect(@tablero.mapa[3][3].nombre).to eq "Delta"
 		expect(@tablero.mapa[4][4].nombre).to eq "Delta"
-	end
+	end	
 
+end
+
+
+describe 'Disparo' do
+		before (:each) do
+			@tablero = Tablero.new(5,5, BarcoLargo.new("Charlie"))
+			@tablero.ponerBarcoEn("(3:3),(4,4)")
+		end
+
+		#it "Al disparar a una coordenada y fallar, debo obtener 'water'" do
+		#	expect(@tablero.disparar("(3:3)")).to eq "water"
+		#end
 end

@@ -47,6 +47,9 @@
         0,
         null,
         null,
+        1,
+        null,
+        null,
         null
       ],
       "/home/jorge/Escritorio/TP- Ing/proyecto-base-katas/batalla_naval/app/models/Barco.rb": [
@@ -74,7 +77,7 @@
         null
       ]
     },
-    "timestamp": 1430621942
+    "timestamp": 1430864328
   },
   "Cucumber Features": {
     "coverage": {
@@ -85,30 +88,30 @@
         null,
         null,
         1,
-        12,
+        18,
         null,
         null,
         null,
         null,
         1,
-        2,
-        2,
-        2,
-        2,
-        2,
-        4,
+        3,
+        3,
+        3,
+        3,
+        3,
+        6,
         null,
         null,
         null,
         1,
-        7,
-        7,
-        7,
-        7,
-        16,
-        9,
-        9,
-        7,
+        8,
+        8,
+        8,
+        8,
+        19,
+        11,
+        11,
+        8,
         null,
         null,
         null,
@@ -122,6 +125,9 @@
         5,
         null,
         5,
+        null,
+        null,
+        1,
         null,
         null,
         null
@@ -136,7 +142,7 @@
         null,
         null,
         1,
-        2,
+        3,
         null,
         null,
         null,
@@ -151,6 +157,6 @@
         null
       ]
     },
-    "timestamp": 1430621945
+    "timestamp": 1430864330
   }
 }

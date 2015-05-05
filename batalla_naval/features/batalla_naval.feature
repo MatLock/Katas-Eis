@@ -17,3 +17,4 @@ Scenario: Create a large ship in a valid location
     And position "(3:3)" is not empty 
     And position "(4:4)" is not empty   
     Then position "(1:1)" is empty
+

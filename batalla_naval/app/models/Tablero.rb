@@ -43,4 +43,7 @@ class Tablero
 		return boolean
 	end
 
+	def dispararEn(coord)
+	end
+
 end
