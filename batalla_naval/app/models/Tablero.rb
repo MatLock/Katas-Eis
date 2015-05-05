@@ -4,7 +4,7 @@ class Tablero
 
 
 	def initialize(x,y)
-		@mapa = Array.new(x,"water") {Array.new(y,"water")}
+		@mapa = Array.new(x) { Array.new(y,"water") }
 	end
 
 	#las listas que se brindan como argumentos deben tener la misma longitud
@@ -44,6 +44,14 @@ class Tablero
 	end
 
 	def dispararEn(coord)
+		array = parsearCoordenadas(coord)
+		x = array[0][0]
+		y = array[0][0]
+		efectuarDisparo(x,y)
+	end
+
+	def efectuarDisparo(x,y)
+		return mapa[x][y]
 	end
 
 end

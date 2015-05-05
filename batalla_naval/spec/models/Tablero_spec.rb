@@ -33,11 +33,11 @@ end
 
 describe 'Disparo' do
 		before (:each) do
-			@tablero = Tablero.new(5,5, BarcoLargo.new("Charlie"))
-			@tablero.ponerBarcoEn("(3:3),(4,4)")
+			@tablero = Tablero.new(5,5)
+			@tablero.ponerBarcoEn("(4:1),(4,2)",BarcoLargo.new("Charlie"))
 		end
 
-		#it "Al disparar a una coordenada y fallar, debo obtener 'water'" do
-		#	expect(@tablero.disparar("(3:3)")).to eq "water"
-		#end
+		it "Al disparar a una coordenada y fallar, debo obtener 'water'" do
+			expect(@tablero.dispararEn("(3:3)")).to eq "water"
+		end
 end
