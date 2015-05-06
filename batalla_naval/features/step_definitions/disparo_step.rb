@@ -7,7 +7,7 @@ Given(/^a board with dimension "(.*?)" x "(.*?)"$/) do |x, y|
 end
 
 Given(/^a large ship in position  "(.*?)"$/) do |coords|
-  @barco_largo = BarcoLargo.new("Alpha")
+  @barco_largo = BarcoLargo.new("Alpha",2)
   @tablero.ponerBarcoEn(coords,@barco_largo)
 end
 

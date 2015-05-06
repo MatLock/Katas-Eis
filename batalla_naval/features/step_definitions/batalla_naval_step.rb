@@ -19,6 +19,6 @@ end
 
 
 Given(/^I create a large ship in position "(.*?)"$/) do |coords|
-  @tablero.ponerBarcoEn(coords,BarcoLargo.new("Delta"))
+  @tablero.ponerBarcoEn(coords,BarcoLargo.new("Delta",2))
 end
 

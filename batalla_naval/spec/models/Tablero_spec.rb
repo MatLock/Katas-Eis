@@ -22,7 +22,7 @@ describe 'Tablero'  do
 
 
 	it "Al agregar un barco grande en las posiciones (x,y),(z,t), las mismas ya no deben estar vacias en el tablero" do
-		@tablero.ponerBarcoEn("(2:2),(3:3),(4:4)", BarcoLargo.new("Delta"))
+		@tablero.ponerBarcoEn("(2:2),(3:3),(4:4)", BarcoLargo.new("Delta",3))
 		expect(@tablero.mapa[2][2].nombre).to eq "Delta"
 		expect(@tablero.mapa[3][3].nombre).to eq "Delta"
 		expect(@tablero.mapa[4][4].nombre).to eq "Delta"
@@ -33,11 +33,15 @@ end
 
 describe 'Disparo' do
 		before (:each) do
-			@tablero = Tablero.new(5,5)
-			@tablero.ponerBarcoEn("(4:1),(4,2)",BarcoLargo.new("Charlie"))
+			@tablero2 = Tablero.new(5,5)
+			@tablero2.ponerBarcoEn("(4:1),(4:2)",BarcoLargo.new("Charlie",2))
 		end
 
 		it "Al disparar a una coordenada y fallar, debo obtener 'water'" do
-			expect(@tablero.dispararEn("(3:3)")).to eq "water"
+			expect(@tablero2.dispararEn("(3:3)")).to eq "water"
+		end
+
+		it "Al disparar a una coordenada y que haya un barco en esa posicion debo obtener 'hit'" do
+			expect(@tablero2.dispararEn("(4:1)")).to eq "hit"
 		end
 end
