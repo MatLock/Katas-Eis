@@ -1,5 +1,6 @@
 require_relative '../../app/models/Tablero.rb'
 require_relative '../../app/models/Barco.rb'
+require_relative '../../app/models/Exceptions.rb'
 
 Given(/^a board with dimensions "(.*?)" x "(.*?)"$/) do |x, y|
   	@tablero = Tablero.new(x.to_i,y.to_i)
@@ -21,4 +22,17 @@ end
 Given(/^I create a large ship in position "(.*?)"$/) do |coords|
   @tablero.ponerBarcoEn(coords,BarcoLargo.new("Delta",2))
 end
+
+
+Given(/^coloco un barco en la posicion "(.*?)"$/) do |coord|
+  begin
+  	@tablero.ponerBarcoEn(coord,BarcoChico.new("Bravo"))
+  rescue FueraDelTableroException => @excepcion
+  end
+end
+
+Then(/^un error de "(.*?)" debe ser lanzada$/) do |excepcion|
+  expect(@excepcion.to_s).to eq excepcion
+end
+
 

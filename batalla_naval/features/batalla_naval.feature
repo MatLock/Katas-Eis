@@ -18,3 +18,8 @@ Scenario: Create a large ship in a valid location
     And position "(4:4)" is not empty   
     Then position "(1:1)" is empty
 
+
+Scenario: al colocar un barco en una posicion invalida debo lanzar una excepcion
+	Given coloco un barco en la posicion "(6:6)"
+	Then un error de "No es posible colocar un barco fuera del mapa!!" debe ser lanzada
+
