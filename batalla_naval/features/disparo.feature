@@ -12,12 +12,11 @@ Scenario: Shoot and miss
 	Then I get "water"
 
 
-@wip
 Scenario: Shoot and hit
-    Given I shoot to position “3:3”
-    Then I get hit
+	Given I shoot to position "(2:3)" and assert the hit
+	Then I got "hit"
 
 @wip
 Scenario: Shoot and sink
-    Given I shoot to position “3:4”
+    Given I shoot to an asserted position “3:4”
     Then I get hit

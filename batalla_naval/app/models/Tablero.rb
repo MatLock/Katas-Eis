@@ -45,6 +45,7 @@ class Tablero
 		y = array[1][0]
 		return ! @mapa[x][y].hayBarco()
 	end 
+	
 	def efectuarDisparo(x,y)
 		return mapa[x][y].recibirDisparo()	
 	end

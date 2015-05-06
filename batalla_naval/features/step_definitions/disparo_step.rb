@@ -21,4 +21,12 @@ Then(/^I get "(.*?)"$/) do |water|
 end
 
 
+Given(/^I shoot to position "(.*?)" and assert the hit$/) do |coord|
+ 	@resultado2 = @tablero.dispararEn(coord)
+end
+
+
+Then(/^I got "(.*?)"$/) do |hit|
+  expect(@resultado2).to eq hit
+end
 
