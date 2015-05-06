@@ -26,6 +26,9 @@ class Tablero
 		 x < 0 || y < 0 || y < 0)
 			raise FueraDelTableroException, "No es posible colocar un barco fuera del mapa!!"
 		end
+		if ( !mapa[x][y].kind_of?(SinBarco))
+			raise BarcoYaExistenteException, "Ya existe un barco en la coordenada proporcionada!"
+		end
 	end
 
 	    

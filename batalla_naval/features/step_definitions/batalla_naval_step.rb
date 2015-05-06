@@ -1,6 +1,7 @@
 require_relative '../../app/models/Tablero.rb'
 require_relative '../../app/models/Barco.rb'
 require_relative '../../app/models/Exceptions.rb'
+require_relative '../../app/models/BarcoYaExistenteException.rb'
 
 Given(/^a board with dimensions "(.*?)" x "(.*?)"$/) do |x, y|
   	@tablero = Tablero.new(x.to_i,y.to_i)
@@ -35,4 +36,17 @@ Then(/^un error de "(.*?)" debe ser lanzada$/) do |excepcion|
   expect(@excepcion.to_s).to eq excepcion
 end
 
+
+Given(/^coloco dos barcos en la posicion "(.*?)"$/) do |coord|
+  @tablero.ponerBarcoEn(coord,BarcoChico.new("Bravo"))
+  begin
+  	@tablero.ponerBarcoEn(coord,BarcoChico.new("Bravo"))
+  rescue BarcoYaExistenteException => @excepcion2
+  end
+end
+
+
+Then(/^un error de "(.*?)" debe ser esperado$/) do |excepcion|
+  expect(@excepcion2.to_s).to eq excepcion
+end
 

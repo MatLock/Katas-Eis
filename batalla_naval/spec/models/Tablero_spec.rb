@@ -2,6 +2,7 @@ require_relative '../spec_helper.rb'
 require_relative '../../app/models/Tablero.rb'
 require_relative '../../app/models/Barco.rb'
 require_relative '../../app/models/Exceptions.rb'
+require_relative '../../app/models/BarcoYaExistenteException.rb'
 
 
 
@@ -24,6 +25,13 @@ describe 'Tablero'  do
 		expect { @tablero.ponerBarcoEn("(6:6)", BarcoChico.new("Alpha"))
 		"No es posible colocar un barco fuera del mapa!!"
 		}.to raise_error(FueraDelTableroException, "No es posible colocar un barco fuera del mapa!!")
+	end
+
+	it 'Al agregar un barco en una coordenada donde ya existe otro barco se debe esperar una excepcion' do
+		@tablero.ponerBarcoEn("(3:3)", BarcoChico.new("Alpha"))
+		expect { @tablero.ponerBarcoEn("(3:3)", BarcoChico.new("Alpha"))
+		"Ya existe un barco en la coordenada proporcionada!"
+		}.to raise_error(BarcoYaExistenteException, "Ya existe un barco en la coordenada proporcionada!")
 	end
 
 
