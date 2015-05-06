@@ -22,8 +22,8 @@ class Tablero
 	end
 
 	def validarCoordenadas(x,y)
-		if (x > mapa.size() || y > mapa.size() || y > mapa[0].size
-			|| x < mapa.size() || y < mapa.size() || y < mapa[0].size)
+		if (x > mapa.size() || y > mapa.size() || y > mapa[0].size() ||
+		 x < 0 || y < 0 || y < 0)
 			raise FueraDelTableroException, "No es posible colocar un barco fuera del mapa!!"
 		end
 	end
