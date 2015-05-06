@@ -30,3 +30,13 @@ Then(/^I got "(.*?)"$/) do |hit|
   expect(@resultado2).to eq hit
 end
 
+Given(/^I shoot the positions "(.*?)" "(.*?)"$/) do |coord1, coord2|
+  @tablero.dispararEn(coord1)
+  @resultado = @tablero.dispararEn(coord2)
+end
+
+
+
+Then(/^this time I got "(.*?)"$/) do |sink|
+  expect(@resultado).to eq sink
+end
