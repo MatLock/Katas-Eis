@@ -15,8 +15,16 @@ class Tablero
 		y = resultado[1]
 		i = 0
 		while i < x.size() do 
+			validarCoordenadas(x[i],y[i])
 			@mapa[x[i]] [y[i]] = barco
 			i = i + 1
+		end
+	end
+
+	def validarCoordenadas(x,y)
+		if (x > mapa.size() || y > mapa.size() || y > mapa[0].size
+			|| x < mapa.size() || y < mapa.size() || y < mapa[0].size)
+			raise FueraDelTableroException, "No es posible colocar un barco fuera del mapa!!"
 		end
 	end
 

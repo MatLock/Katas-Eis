@@ -1,6 +1,7 @@
 require_relative '../spec_helper.rb'
 require_relative '../../app/models/Tablero.rb'
 require_relative '../../app/models/Barco.rb'
+require_relative '../../app/models/Exceptions.rb'
 
 
 
@@ -19,6 +20,11 @@ describe 'Tablero'  do
 		expect(@tablero.mapa[3][3].nombre).to eq "Foxtrox"
 	end
 
+	it 'Al agregar un barco fuera de los limites del tablero se debe esperar una excepcion' do
+		expect { @tablero.ponerBarcoEn("(6:6)", BarcoChico.new("Alpha"))
+		"No es posible colocar un barco fuera del mapa!!"
+		}.to raise_error(FueraDelTableroException, "No es posible colocar un barco fuera del mapa!!")
+	end
 
 
 	it "Al agregar un barco grande en las posiciones (x,y),(z,t), las mismas ya no deben estar vacias en el tablero" do
