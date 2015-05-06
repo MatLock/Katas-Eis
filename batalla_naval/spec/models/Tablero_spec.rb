@@ -44,4 +44,10 @@ describe 'Disparo' do
 		it "Al disparar a una coordenada y que haya un barco en esa posicion debo obtener 'hit'" do
 			expect(@tablero2.dispararEn("(4:1)")).to eq "hit"
 		end
+
+		it "Al hundir un barco debo obtener 'sink', una vez hundido en la misma coordenada debo obtener 'water' si se vuelve a disparar" do
+			@tablero2.dispararEn("(4:1)")
+			expect(@tablero2.dispararEn("(4:2)")).to eq "sink"
+			expect(@tablero2.dispararEn("(4:1)")).to eq "water"
+		end
 end

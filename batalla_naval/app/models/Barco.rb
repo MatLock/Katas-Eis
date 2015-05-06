@@ -51,10 +51,10 @@ class BarcoLargo < Barco
 	end
 
 	def recibirDisparo()
+		@longitud = @longitud -1
 		if (@longitud == 0)
 			return "sink"
 		end
-		@longitud = @longitud - 1
 		return "hit"
 	end
 

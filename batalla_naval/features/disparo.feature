@@ -19,4 +19,4 @@ Scenario: Shoot and hit
 @wip
 Scenario: Shoot and sink
     Given I shoot to an asserted position “3:4”
-    Then I get hit
+    Then I get "sink"
