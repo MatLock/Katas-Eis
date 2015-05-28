@@ -29,3 +29,21 @@ Then(/^position "(.*?)" is not empty$/) do |coord|
 end
 
 
+Given(/^I create a large ship in position "(.*?)"$/) do |coords|
+  #@tablero.ponerBarcoEn(coords,BarcoLargo.new("Delta",2))
+  fill_in(:coordenadas, :with => coords)
+  fill_in(:nombreBarco, :with => "Delta")
+  fill_in(:tamanio, :with => "3")
+  click_button "crearBarco"
+end
+
+
+
+Then(/^position "(.*?)" is empty$/) do |coord|
+  #@tablero.posicionVacia(coord).should be true
+  fill_in(:coord, :with => coord)
+  click_button "pregunta"
+  page.should have_content('true')
+end
+
+
