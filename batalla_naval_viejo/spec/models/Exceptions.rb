@@ -1,0 +1,3 @@
+class FueraDelTableroException < Exception
+
+end

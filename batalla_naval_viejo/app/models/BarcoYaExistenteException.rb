@@ -1,0 +1,3 @@
+class BarcoYaExistenteException < Exception
+	
+end

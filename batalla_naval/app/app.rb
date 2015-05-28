@@ -1,18 +1,69 @@
+require_relative 'models/Tablero'
+require_relative 'models/Barco'
+
+
 module Battleship
   class App < Padrino::Application
     register Padrino::Rendering
-    register Padrino::Mailer
     register Padrino::Helpers
-    register Padrino::Sprockets
-    #register Padrino::Admin::AccessControl
-    sprockets :minify => (Padrino.env == :production)
-
     enable :sessions
     
     get '/' do
         File.read(File.join('public', 'index.html'))
     end
+    
+    get 'mipagina' do
+        session[:tablero] = nil
+        session[:alto] = nil
+        session[:ancho] = nil
+        session[:errores] = ""
+      render 'batalla/inicio'
+    end
 
+
+    post 'crearTablero' do
+      @ancho = params[:ancho]
+      @alto = params[:alto]
+      session[:alto] = @alto
+      session[:ancho] = @ancho
+      session[:tablero] = Tablero.new(@ancho.to_i,@alto.to_i)
+      render 'batalla/inicio'
+    end   
+
+    post 'posicionVacia' do
+        coords = params[:coord]
+        @tablero = session[:tablero]
+        @respuesta = @tablero.posicionVacia(coords).to_s
+        session[:tablero] = @tablero
+        render 'batalla/inicio'
+    end
+     
+    post 'ponerBarco' do
+        @barco = params[:nombreBarco]
+        @coordenadas=params[:coordenadas]
+        @tamanio = params[:tamanio] 
+        @tablero = session[:tablero]
+        begin
+            if(@tamanio.eql?('1'))
+                @tablero.ponerBarcoEn(@coordenadas, BarcoChico.new(@barco))
+            else
+                @tablero.ponerBarcoEn(@coordenadas, BarcoLargo.new(@barco,@tamanio.to_i))
+            end
+        rescue Exception => e
+            session[:errores] = session[:errores] +" , "+ e.message
+        end
+        session[:tablero] = @tablero
+        render 'batalla/inicio'
+    end
+
+    post 'dispararEn' do
+        @coordenadas = params[:coordDisparo]
+        @tablero = session[:tablero]
+        informe = @tablero.dispararEn(@coordenadas)
+        session[:informe] = informe
+        session[:tablero] = @tablero
+        render 'batalla/inicio'
+    end
 
     ##
     # Caching support
