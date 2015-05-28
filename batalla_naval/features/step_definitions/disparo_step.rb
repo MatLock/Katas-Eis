@@ -46,3 +46,24 @@ Then(/^I got "(.*?)"$/) do |hit|
   #expect(@resultado2).to eq hit
   page.should have_content(hit)
 end
+
+
+
+
+
+#DISPARO NUEVAMENTE A UNA COORDENADA Y HUNDO AL BARCO
+Given(/^I shoot the positions "(.*?)" "(.*?)"$/) do |coord1, coord2|
+  #@tablero.dispararEn(coord1)
+  #@resultado = @tablero.dispararEn(coord2)
+  fill_in(:coordDisparo,:with => coord1)
+  click_button "disparo"
+  fill_in(:coordDisparo,:with => coord2)
+  click_button "disparo"
+end
+
+
+
+Then(/^this time I got "(.*?)"$/) do |sink|
+  #expect(@resultado).to eq sink
+  page.should have_content(sink)
+end
