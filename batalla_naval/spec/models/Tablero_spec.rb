@@ -23,13 +23,15 @@ describe 'Tablero'  do
 
 	it 'Al agregar un barco fuera de los limites del tablero se debe esperar una excepcion' do
 		expect { @tablero.ponerBarcoEn("(6:6)", BarcoChico.new("Alpha"))
-		}.to raise_error(FueraDelTableroException)
+		"No es posible colocar un barco fuera del mapa!!"
+		}.to raise_error(FueraDelTableroException, "No es posible colocar un barco fuera del mapa!!")
 	end
 
 	it 'Al agregar un barco en una coordenada donde ya existe otro barco se debe esperar una excepcion' do
 		@tablero.ponerBarcoEn("(3:3)", BarcoChico.new("Alpha"))
 		expect { @tablero.ponerBarcoEn("(3:3)", BarcoChico.new("Alpha"))
-		}.to raise_error(BarcoYaExistenteException)
+		"Ya existe un barco en la coordenada proporcionada!"
+		}.to raise_error(BarcoYaExistenteException, "Ya existe un barco en la coordenada proporcionada!")
 	end
 
 
