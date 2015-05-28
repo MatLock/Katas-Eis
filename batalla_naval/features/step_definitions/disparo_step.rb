@@ -1,7 +1,7 @@
 require_relative '../../app/models/Tablero.rb'
 require_relative '../../app/models/Barco.rb'
 
-
+#CREACION DE UN MAPA
 Given(/^a board with dimension "(.*?)" x "(.*?)"$/) do |x, y|
   	#@tablero = Tablero.new(x.to_i,y.to_i)
   visit '/mipagina'
@@ -10,6 +10,7 @@ Given(/^a board with dimension "(.*?)" x "(.*?)"$/) do |x, y|
   click_button "crearTablero"
 end
 
+#CREACION DE UN BARCO LARGO
 Given(/^a large ship in position  "(.*?)"$/) do |coords|
   #@barco_largo = BarcoLargo.new("Alpha",2)
   #@tablero.ponerBarcoEn(coords,@barco_largo)
@@ -19,6 +20,7 @@ Given(/^a large ship in position  "(.*?)"$/) do |coords|
   click_button "crearBarco"
 end
 
+#DISPARO A UNA COORDENADA INCORRECTA Y OBTENGO 'AGUA'
 Given(/^I shoot to position "(.*?)"$/) do |coord|
   #@resultado = @tablero.dispararEn(coord)
   fill_in(:coordDisparo,:with => coord)
@@ -29,4 +31,18 @@ end
 Then(/^I get "(.*?)"$/) do |water|
   #expect(@resultado).to eq water
   page.should have_content(water)
+end
+
+
+# DISPARO A UNA COORDENADA DONDE ESTA UNA PARTE DEL BARCO LARGO Y OBTENGO 'HIT'
+Given(/^I shoot to position "(.*?)" and assert the hit$/) do |coord|
+ 	#@resultado2 = @tablero.dispararEn(coord)
+ 	fill_in(:coordDisparo,:with => coord)
+  	click_button "disparo"
+end
+
+
+Then(/^I got "(.*?)"$/) do |hit|
+  #expect(@resultado2).to eq hit
+  page.should have_content(hit)
 end
