@@ -1,9 +1,11 @@
 class Tablero
 
-	attr_accessor :mapa
+	attr_accessor :mapa, :x , :y
 
 
 	def initialize(x,y)
+		@x = x
+		@y = y
 		@mapa = Array.new(x) { Array.new(y, SinBarco.new) }
 	end
 
@@ -22,8 +24,7 @@ class Tablero
 	end
 
 	def validarCoordenadas(x,y)
-		if (x > mapa.size() || y > mapa.size() || y > mapa[0].size() ||
-		 x < 0 || y < 0 || y < 0)
+		if (x > @x ||  x < 0 || y < 0 || y > @y)
 			raise FueraDelTableroException, "No es posible colocar un barco fuera del mapa!!"
 		end
 		if ( !mapa[x][y].kind_of?(SinBarco))
@@ -63,6 +64,10 @@ class Tablero
 			mapa[x][y] = SinBarco.new
 		end
 		return resultado
+	end
+
+	def to_s
+		return 'tablero'
 	end
 
 end

@@ -6,6 +6,10 @@ class Barco
 	def recibirDisparo
 	end
 
+	def to_s
+		return @nombre
+	end
+
 	def hayBarco()
 		return true
 	end
@@ -37,6 +41,10 @@ class SinBarco < Barco
 
 	def hayBarco()
 		return false
+	end
+
+	def to_s
+		return "water"
 	end
 
 end
