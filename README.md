@@ -1,5 +1,4 @@
 # Katas-EIS
 
-Link a Travis ->   https://travis-ci.org/MatLock/katas-eis
-#
-#
+
+Build Status -> [![Build Status] (https://travis-ci.org/MatLock/katas-eis.svg) ] (https://travis-ci.org/MatLock/katas-eis)
