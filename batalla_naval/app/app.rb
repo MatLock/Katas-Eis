@@ -12,7 +12,7 @@ module Battleship
         File.read(File.join('public', 'index.html'))
     end
     
-    get 'mipagina' do
+    get 'batallaNaval' do
         session[:tablero] = nil
         session[:alto] = nil
         session[:ancho] = nil

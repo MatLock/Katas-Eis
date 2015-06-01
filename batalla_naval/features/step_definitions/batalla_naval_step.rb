@@ -6,7 +6,7 @@ require_relative '../../app/models/BarcoYaExistenteException.rb'
 # CREO UN TABLERO
 Given(/^a board with dimensions "(.*?)" x "(.*?)"$/) do |x, y|
     #@tablero = Tablero.new(x.to_i,y.to_i)
-  visit '/mipagina'
+  visit '/batallaNaval'
   fill_in(:ancho, :with => x)
   fill_in(:alto, :with => y)
   click_button "crearTablero"

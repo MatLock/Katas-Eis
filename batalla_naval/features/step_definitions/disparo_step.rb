@@ -4,7 +4,7 @@ require_relative '../../app/models/Barco.rb'
 #CREACION DE UN MAPA
 Given(/^a board with dimension "(.*?)" x "(.*?)"$/) do |x, y|
   	#@tablero = Tablero.new(x.to_i,y.to_i)
-  visit '/mipagina'
+  visit '/batallaNaval'
   fill_in(:ancho, :with => x)
   fill_in(:alto, :with => y)
   click_button "crearTablero"
