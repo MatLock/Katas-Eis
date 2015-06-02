@@ -30,19 +30,23 @@ module Battleship
   post 'ponerBarco' do
     @barco = params[:nombreBarco]
     @coordenadas=params[:coordenadas]
-    @tamanio = params[:tamanio] 
+    @tamanio = params[:radioTamanio] 
     @tablero = session[:tablero]
-    @tablero.ponerBarcoChicoEn(@coordenadas, BarcoChico.new(@barco))
+    if(@tamanio.eql?('chico'))
+      @tablero.ponerBarcoChicoEn(@coordenadas, BarcoChico.new(@barco))
+    else
+      @tablero.ponerBarcoLargoEn(@coordenadas, BarcoLargo.new(@barco,2))
+    end
     render 'batalla/inicio'
   end  
 
 
    post 'posicionVacia' do
-        coords = params[:coord]
-        @tablero = session[:tablero]
-        @respuesta = @tablero.posicionVacia(coords).to_s
-        session[:tablero] = @tablero
-        render 'batalla/inicio'
+      coords = params[:coord]
+      @tablero = session[:tablero]
+      @respuesta = @tablero.posicionVacia(coords).to_s
+      session[:tablero] = @tablero
+      render 'batalla/inicio'
     end
 
     ##

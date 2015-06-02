@@ -15,6 +15,7 @@ end
 Given(/^I create a small ship in position "(.*?)"$/) do |coord|
   fill_in(:coordenadas, :with => coord)
   fill_in(:nombreBarco, :with => "Foxtrox")
+  choose("radioChico")
   click_button "crearBarco"
 end
 
@@ -23,4 +24,13 @@ Then(/^position "(.*?)" is not empty$/) do |coord|
   fill_in(:coord, :with => coord)
   click_button "pregunta"
   page.should have_content('false')
+end
+
+
+#COLOCO UN BARCO LARGO
+Given(/^I create a large ship in position "(.*?)"$/) do |coords|
+  fill_in(:coordenadas, :with => coords)
+  fill_in(:nombreBarco, :with => "Delta")
+  choose("radioLargo")
+  click_button "crearBarco"
 end

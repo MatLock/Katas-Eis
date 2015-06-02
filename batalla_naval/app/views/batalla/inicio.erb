@@ -68,7 +68,11 @@
 					<div>	
 						<label for="exampleInputEmail3">Coordenadas: 
 						<input type="text" name="coordenadas" id="coordenadas"/>
-						<label for="exampleInputEmail3">Formato de coordenadas: 'x:y'</label><br/></br>
+						<div>
+							<input type="radio" name="radioLargo" value="largo">largo<br>
+							<input type="radio" name="radioChico" value="chico">chico<br>
+						</div>
+						<label for="exampleInputEmail3">Formato de coordenadas: 'x:y'</label><br/>
 						<input class="btn btn-success" type="submit" value="Enviar Coordenadas" id="crearBarco"/>
 					</div>
 				
@@ -81,7 +85,7 @@
 			<%= csrf_token_field %>
 			<label for="exampleInputEmail3">Coordenada Vacia?</label>
 			<input type="text" name="coord" id="coord" placeholder="Coordenadas"/>
-    		<input class="btn btn-success" type="submit" value="Enviar Coordenadas" id="pregunta" placeholder="Coordenadas"/>
+    		<input class="btn btn-success" type="submit" value="Preguntar Posicion" id="pregunta" placeholder="Coordenadas"/>
     	</form>
     		<label for="exampleInputEmail3">Respuesta -> <%= @respuesta%></label> 
     </div>
