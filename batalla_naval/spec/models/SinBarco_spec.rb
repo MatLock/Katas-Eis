@@ -9,8 +9,8 @@ describe 'SinBarco'  do
 		@sinBarco = SinBarco.new()
 	end
 
-	it 'Al iniciar el juego' do
-		expect(@sinBarco).to be #
+	it 'responde al metodo hayBarco' do
+		expect(@sinBarco.hayBarco).to eq false
 	end
 
 	it 'responde al toString' do

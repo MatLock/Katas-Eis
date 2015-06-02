@@ -1,23 +1,31 @@
 require_relative 'models/Tablero'
 require_relative 'models/Barco'
 
-
 module Battleship
   class App < Padrino::Application
     register Padrino::Rendering
     register Padrino::Helpers
     enable :sessions
     
-    get '/' do
-        File.read(File.join('public', 'index.html'))
-    end
+  get '/' do
+    File.read(File.join('public', 'index.html'))
+  end
     
-    get 'batallaNaval' do
-        session[:tablero] = nil
-        session[:alto] = nil
-        session[:ancho] = nil
-      render 'batalla/inicio'
-    end
+  get 'batallaNaval' do
+    session[:tablero] = nil
+    session[:alto] = nil
+    session[:ancho] = nil
+    render 'batalla/inicio'
+  end
+  
+  post 'crearTablero' do
+    @ancho = params[:ancho]
+    @alto = params[:alto]
+    session[:alto] = @alto
+    session[:ancho] = @ancho
+    session[:tablero] = Tablero.new(@ancho.to_i,@alto.to_i)
+    render 'batalla/inicio'
+  end  
 
     ##
     # Caching support
