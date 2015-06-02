@@ -53,6 +53,33 @@
 	</div>
 
 
+	<br/>
+		<% if !session[:tablero].nil? %>
+			<form class="form-inline" method="POST" action="ponerBarco">
+				<%= csrf_token_field %>		
+					<div class="form-group">
+						<label for="exampleInputEmail3"> Coloque su Barco</label>
+					</div>
+					<div>
+				 		 <label for="exampleInputEmail3">Nombre:</label>
+						 <input  class="form-control" type="text" name="nombreBarco" id="nombreBarco"/>
+				    </div>
+				    </br>
+					<div>	
+						<label for="exampleInputEmail3">Coordenadas: 
+						<input type="text" name="coordenadas" id="coordenadas"/>
+						<label for="exampleInputEmail3">Formato de coordenadas: 'x:y'</label><br/></br>
+						<input class="btn btn-success" type="submit" value="Enviar Coordenadas" id="crearBarco"/>
+					</div>
+				
+			</form>
+			<% end %>
+	    
+	
+
+
+	<div>
+	<br/>
 	<div align="center">
 		<% if !session[:tablero].nil? %>
 		<table border="1"  class="table table-striped">

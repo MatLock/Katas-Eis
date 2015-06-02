@@ -25,6 +25,15 @@ module Battleship
     session[:ancho] = @ancho
     session[:tablero] = Tablero.new(@ancho.to_i,@alto.to_i)
     render 'batalla/inicio'
+  end
+
+  post 'ponerBarco' do
+    @barco = params[:nombreBarco]
+    @coordenadas=params[:coordenadas]
+    @tamanio = params[:tamanio] 
+    @tablero = session[:tablero]
+    @tablero.ponerBarcoChicoEn(@coordenadas, BarcoChico.new(@barco))
+    render 'batalla/inicio'
   end  
 
     ##
