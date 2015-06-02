@@ -49,3 +49,26 @@ end
 Then(/^un error de "(.*?)" debe ser lanzada$/) do |excepcion|
   page.should have_content("No es posible colocar un barco fuera del mapa!!")
 end
+
+
+# TRATO DE COLOCAR 2 BARCOS EN UNA MISMA POSICION
+Given(/^coloco dos barcos en la posicion "(.*?)"$/) do |coord|
+  #@tablero.ponerBarcoEn(coord,BarcoChico.new("Bravo"))
+  #begin
+  # @tablero.ponerBarcoEn(coord,BarcoChico.new("Bravo"))
+  #rescue BarcoYaExistenteException => @excepcion2
+  #end
+  fill_in(:coordenadas, :with => coord)
+  fill_in(:nombreBarco, :with => "Charlie")
+  choose("radioChico")
+  click_button "crearBarco"
+  fill_in(:coordenadas, :with => coord)
+  fill_in(:nombreBarco, :with => "Charlie")
+   choose("radioChico")
+  click_button "crearBarco"
+end
+
+# VERIFICO EL ERROR QUE INDICA QUE NO SE PUEDEN COLOCAR 2 BARCOS EN LA MISMA COORDENADA
+Then(/^un error de "(.*?)" debe ser esperado$/) do |excepcion|
+  page.should have_content("Ya existe un barco en la coordenada proporcionada!")
+end

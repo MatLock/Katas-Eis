@@ -19,7 +19,6 @@ Scenario: al colocar un barco en una posicion invalida debo lanzar una excepcion
 	Given coloco un barco en la posicion "6:6"
 	Then un error de "No es posible colocar un barco fuera del mapa!!" debe ser lanzada
 
-@wip
 Scenario: al colocar un barco en una posicion ya ocupada debo lanzar una excepcion
 	Given coloco dos barcos en la posicion "1:1"
 	Then un error de "Ya existe un barco en la coordenada proporcionada!" debe ser esperado
