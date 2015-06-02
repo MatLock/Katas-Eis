@@ -31,5 +31,43 @@
   		</div>
 	</div>
 
+
+	</div>	
+		<% if session[:tablero].nil? %>
+		<form class="form-inline" method="POST" action="crearTablero">
+			<%= csrf_token_field %>
+			 <div class="form-group">
+			 	<div>
+					<label for="exampleInputEmail3">Seleccione el tamaño del tablero</label>
+				</div>
+				<div>
+					<label for="exampleInputEmail3">Ancho:</label>
+					<input class="form-control" type="text" name="ancho" placeholder="Ancho"/>
+					<label for="exampleInputEmail3">Alto:</label>
+					<input type="text" name="alto" class="form-control" placeholder="Alto"/>
+			 		<input class="btn btn-success" type="submit" value="enviar" id="crearTablero"/>
+			 	</div>	
+			</div>
+		</form>
+		<% end %>
+	</div>
+
+
+	<div align="center">
+		<% if !session[:tablero].nil? %>
+		<table border="1"  class="table table-striped">
+			<% for i in 1..session[:alto].to_i %>
+			<tr>
+				<% for j in 1..session[:ancho].to_i %>
+				<td>
+					<label label for="exampleInputEmail3"><%= session[:tablero].mapa[i-1][j-1] %></label>
+				</td>
+				<% end %>
+			</tr>
+			<% end %>
+		<% end %>
+		</table>
+	<div>
+
 	
 </html>

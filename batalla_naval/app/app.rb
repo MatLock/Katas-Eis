@@ -16,7 +16,6 @@ module Battleship
         session[:tablero] = nil
         session[:alto] = nil
         session[:ancho] = nil
-        session[:errores] = ""
       render 'batalla/inicio'
     end
 
