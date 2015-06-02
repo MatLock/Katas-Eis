@@ -1,4 +1,4 @@
-class SinBarco
+class SinBarco < Barco
 
 def initialize()
 	end
@@ -10,6 +10,5 @@ def initialize()
 	def to_s
 		return "water"
 	end
-
 
 end
