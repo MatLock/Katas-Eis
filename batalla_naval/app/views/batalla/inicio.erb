@@ -75,7 +75,16 @@
 			</form>
 			<% end %>
 	    
-	
+
+	<div>    	
+    	<form class="form-inline" method="POST" action="posicionVacia">
+			<%= csrf_token_field %>
+			<label for="exampleInputEmail3">Coordenada Vacia?</label>
+			<input type="text" name="coord" id="coord" placeholder="Coordenadas"/>
+    		<input class="btn btn-success" type="submit" value="Enviar Coordenadas" id="pregunta" placeholder="Coordenadas"/>
+    	</form>
+    		<label for="exampleInputEmail3">Respuesta -> <%= @respuesta%></label> 
+    </div>
 
 
 	<div>

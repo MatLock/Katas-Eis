@@ -36,6 +36,15 @@ module Battleship
     render 'batalla/inicio'
   end  
 
+
+   post 'posicionVacia' do
+        coords = params[:coord]
+        @tablero = session[:tablero]
+        @respuesta = @tablero.posicionVacia(coords).to_s
+        session[:tablero] = @tablero
+        render 'batalla/inicio'
+    end
+
     ##
     # Caching support
     #
