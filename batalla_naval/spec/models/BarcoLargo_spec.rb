@@ -16,8 +16,13 @@ describe 'BarcoLargo'  do
 		expect(@barco.nombre).to eq "Delta"
 	end
 
-	it 'Al recibir un primer disparo retorna hit' do
+	it 'Un Barco Largo al recibir un primer disparo retorna hit' do
 		expect(@barco.recibirDisparo()).to eq "hit"
+	end
+
+	it 'Un Barco Largo al recibir el segundo disparo retorna sink'do
+			@barco.recibirDisparo
+			expect(@barco.recibirDisparo()).to eq "sink"
 	end
 
 end
