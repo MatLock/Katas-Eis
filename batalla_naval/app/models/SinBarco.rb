@@ -11,4 +11,8 @@ def initialize()
 		return "water"
 	end
 
+	def recibirDisparo()
+		return "water"
+	end
+
 end

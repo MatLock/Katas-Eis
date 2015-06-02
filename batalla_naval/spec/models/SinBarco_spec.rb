@@ -17,4 +17,8 @@ describe 'SinBarco'  do
 		expect(@sinBarco.to_s).to eq "water"
 	end
 
+	it 'responde recibir disparo' do
+		expect(@sinBarco.recibirDisparo).to eq "water"
+	end
+
 end
