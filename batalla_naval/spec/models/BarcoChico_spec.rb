@@ -17,4 +17,8 @@ describe 'SinBarco'  do
 		expect(@barco.nombre).to eq "Delta"
 	end
 
+	it 'responde al mensaje recibir Disparo (se hunde)' do
+		expect(@barco.recibirDisparo).to eq "sink"
+	end
+
 end
