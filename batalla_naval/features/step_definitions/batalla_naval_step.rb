@@ -34,3 +34,18 @@ Given(/^I create a large ship in position "(.*?)"$/) do |coords|
   choose("radioLargo")
   click_button "crearBarco"
 end
+
+
+
+#COLOCO UN BARCO EN UNA COORDENADA INVALIDA
+Given(/^coloco un barco en la posicion "(.*?)"$/) do |coord|
+  fill_in(:coordenadas, :with => coord)
+  fill_in(:nombreBarco, :with => "Charlie")
+  choose("radioChico")
+  click_button "crearBarco"
+end
+
+#VERIFICO ERROR DE COLOCACION DE UN BARCO FUERA DEL MAPA
+Then(/^un error de "(.*?)" debe ser lanzada$/) do |excepcion|
+  page.should have_content("No es posible colocar un barco fuera del mapa!!")
+end

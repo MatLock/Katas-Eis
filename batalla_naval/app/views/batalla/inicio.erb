@@ -52,33 +52,28 @@
 		<% end %>
 	</div>
 
-
 	<br/>
+	<label for="exampleInputEmail3"> Coloque su Barco</label>
 		<% if !session[:tablero].nil? %>
 			<form class="form-inline" method="POST" action="ponerBarco">
 				<%= csrf_token_field %>		
 					<div class="form-group">
-						<label for="exampleInputEmail3"> Coloque su Barco</label>
-					</div>
-					<div>
 				 		 <label for="exampleInputEmail3">Nombre:</label>
 						 <input  class="form-control" type="text" name="nombreBarco" id="nombreBarco"/>
 				    </div>
-				    </br>
-					<div>	
-						<label for="exampleInputEmail3">Coordenadas: 
+				    <label for="exampleInputEmail3">Coordenadas (Formato x:y) </label>
+					<div class="form-group">
 						<input type="text" name="coordenadas" id="coordenadas"/>
-						<div>
-							<input type="radio" name="radioLargo" value="largo">largo<br>
-							<input type="radio" name="radioChico" value="chico">chico<br>
-						</div>
-						<label for="exampleInputEmail3">Formato de coordenadas: 'x:y'</label><br/>
-						<input class="btn btn-success" type="submit" value="Enviar Coordenadas" id="crearBarco"/>
+							<label class="radio-inline">
+								<input id="radioLargo" type="radio" name="radio" value="largo">largo</input>
+							</label>
+							</label>
+								<input id="radioChico" type="radio" name="radio" value="chico">chico</input>
+							</label>
 					</div>
-				
+						<input class="btn btn-success" type="submit" value="Enviar Coordenadas" id="crearBarco"/>			
 			</form>
 			<% end %>
-	    
 
 	<div>    	
     	<form class="form-inline" method="POST" action="posicionVacia">
@@ -109,5 +104,11 @@
 		</table>
 	<div>
 
+	<div align="left">
+		<% if !session[:errores].nil? %>
+			<label label for="exampleInputEmail3" > Errores </label>
+			<%= session[:errores]%>
+        <%end %>
+	</div>
 	
 </html>

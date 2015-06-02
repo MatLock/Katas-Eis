@@ -13,7 +13,8 @@ Scenario: Create a large ship in a valid location
     Given I create a large ship in position "3:3"  
     Then position "3:3" is not empty 
     And  position "3:4" is not empty   
-@wip
+
+
 Scenario: al colocar un barco en una posicion invalida debo lanzar una excepcion
 	Given coloco un barco en la posicion "6:6"
 	Then un error de "No es posible colocar un barco fuera del mapa!!" debe ser lanzada

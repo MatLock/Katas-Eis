@@ -32,12 +32,16 @@ module Battleship
     @coordenadas=params[:coordenadas]
     @tamanio = params[:radioTamanio] 
     @tablero = session[:tablero]
-    if(@tamanio.eql?('chico'))
-      @tablero.ponerBarcoChicoEn(@coordenadas, BarcoChico.new(@barco))
-    else
-      @tablero.ponerBarcoLargoEn(@coordenadas, BarcoLargo.new(@barco,2))
+    begin
+      if(@tamanio.eql?('chico'))
+        @tablero.ponerBarcoChicoEn(@coordenadas, BarcoChico.new(@barco))
+      else
+        @tablero.ponerBarcoLargoEn(@coordenadas, BarcoLargo.new(@barco,2))
+      end
+    rescue Exception => e
+      session[:errores] = e.message
     end
-    render 'batalla/inicio'
+      render 'batalla/inicio'
   end  
 
 
