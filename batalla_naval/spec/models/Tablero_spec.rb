@@ -40,3 +40,16 @@ describe 'Tablero'  do
 	end
 
 end
+
+
+describe 'Disparo' do
+		before (:each) do
+			@tablero2 = Tablero.new(5,5)
+			@tablero2.ponerBarcoLargoEn("3:3",BarcoLargo.new("Charlie",2))
+		end
+
+		it "Al disparar a una coordenada y fallar, debo obtener 'water'" do
+			expect(@tablero2.dispararEn("2:2")).to eq "water"
+		end
+
+end

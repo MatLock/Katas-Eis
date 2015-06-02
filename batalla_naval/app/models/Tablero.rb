@@ -57,4 +57,14 @@ class Tablero
 		end
 	end
 
+	def dispararEn(coord)
+		array = parsearCoordenadas(coord)
+		return efectuarDisparo(array[0],array[1])
+	end
+
+	def efectuarDisparo(x,y)
+		resultado = mapa[x][y].recibirDisparo()	
+		return resultado
+	end
+
 end
