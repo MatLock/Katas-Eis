@@ -14,6 +14,7 @@ class Tablero
 	end
 
 	def ponerBarcoEn(x,y,barco)
+		validarCoordenadas(x,y)
 		@mapa[x][y] = barco
 	end
 
@@ -45,5 +46,15 @@ class Tablero
 		y = array[1]
 		return ! @mapa[x][y].hayBarco()
 	end 
+
+
+	def validarCoordenadas(x,y)
+		if (x > @x ||  x < 0 || y < 0 || y > @y)
+			raise FueraDelTableroException, "No es posible colocar un barco fuera del mapa!!"
+		end
+		if ( !mapa[x][y].kind_of?(SinBarco))
+			raise BarcoYaExistenteException, "Ya existe un barco en la coordenada proporcionada!"
+		end
+	end
 
 end

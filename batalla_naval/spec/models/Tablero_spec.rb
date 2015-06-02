@@ -3,9 +3,7 @@ require_relative '../../app/models/Tablero.rb'
 require_relative '../../app/models/SinBarco.rb'
 require_relative '../../app/models/Barco.rb'
 require_relative '../../app/models/BarcoChico.rb'
-
-
-
+require_relative '../../app/models/Exceptions.rb'
 
 
 describe 'Tablero'  do 
@@ -29,5 +27,9 @@ describe 'Tablero'  do
 		expect(@tablero.mapa[3][4].nombre).to eq "Delta"
 	end	
 
+	it 'Al agregar un barco fuera de los limites del tablero se debe esperar una excepcion' do
+		expect { @tablero.ponerBarcoChicoEn("6:6", BarcoChico.new("Alpha"))
+		}.to raise_error(FueraDelTableroException)
+	end
 
 end
