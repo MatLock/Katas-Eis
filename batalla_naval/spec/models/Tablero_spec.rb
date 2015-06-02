@@ -4,6 +4,7 @@ require_relative '../../app/models/SinBarco.rb'
 require_relative '../../app/models/Barco.rb'
 require_relative '../../app/models/BarcoChico.rb'
 require_relative '../../app/models/Exceptions.rb'
+require_relative '../../app/models/BarcoYaExistenteException.rb'
 
 
 describe 'Tablero'  do 
@@ -30,6 +31,12 @@ describe 'Tablero'  do
 	it 'Al agregar un barco fuera de los limites del tablero se debe esperar una excepcion' do
 		expect { @tablero.ponerBarcoChicoEn("6:6", BarcoChico.new("Alpha"))
 		}.to raise_error(FueraDelTableroException)
+	end
+
+	it 'Al agregar un barco en una coordenada donde ya existe otro barco se debe esperar una excepcion' do
+		@tablero.ponerBarcoChicoEn("3:3", BarcoChico.new("Alpha"))
+		expect { @tablero.ponerBarcoChicoEn("3:3", BarcoChico.new("Alpha"))
+		}.to raise_error(BarcoYaExistenteException)
 	end
 
 end
