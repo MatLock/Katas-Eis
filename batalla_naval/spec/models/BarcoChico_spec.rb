@@ -3,7 +3,7 @@ require_relative '../../app/models/BarcoChico.rb'
 
 
 
-describe 'SinBarco'  do 
+describe 'BarcoChico'  do 
 	
 	before (:each) do
 		@barco = BarcoChico.new("Delta")
