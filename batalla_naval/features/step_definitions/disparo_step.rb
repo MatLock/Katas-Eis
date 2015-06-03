@@ -26,3 +26,14 @@ end
 Then(/^I get "(.*?)"$/) do |water|
   page.should have_content(water)
 end
+
+# DISPARO A UNA COORDENADA DONDE ESTA UNA PARTE DEL BARCO LARGO Y OBTENGO 'HIT'
+Given(/^I shoot to position "(.*?)" and assert the hit$/) do |coord|
+  fill_in(:coordDisparo,:with => coord)
+  click_button "disparo"
+end
+
+
+Then(/^I got "(.*?)"$/) do |hit|
+  page.should have_content(hit)
+end
