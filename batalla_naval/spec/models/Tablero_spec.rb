@@ -56,4 +56,8 @@ describe 'Disparo' do
 		expect(@tablero2.dispararEn("3:3")).to eq "hit"
 	end
 
+	it "Al hundir un barco debo obtener 'sink' " do
+		@tablero2.dispararEn("3:3")
+		expect(@tablero2.dispararEn("3:4")).to eq "sink"
+	end
 end

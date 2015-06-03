@@ -64,6 +64,9 @@ class Tablero
 
 	def efectuarDisparo(x,y)
 		resultado = mapa[x][y].recibirDisparo()	
+		if(resultado.eql? "sink")
+			mapa[x][y-1] = resultado
+		end	
 		mapa[x][y] = resultado
 		return resultado
 	end
