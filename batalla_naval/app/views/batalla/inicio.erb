@@ -21,6 +21,13 @@
 		    text-align: center;
 		 }
 	</style>
+<style>
+	.tablero{
+		width: 300px;
+		height: 300px;
+		margin: 0 auto;
+	}
+</style>
 	
 	<body>
 	<div class="container">	
@@ -53,8 +60,8 @@
 	</div>
 
 	<br/>
-	<label for="exampleInputEmail3"> Coloque su Barco</label>
 		<% if !session[:tablero].nil? %>
+		<label for="exampleInputEmail3"> Coloque su Barco</label>
 			<form class="form-inline" method="POST" action="ponerBarco">
 				<%= csrf_token_field %>		
 					<div class="form-group">
@@ -65,44 +72,60 @@
 					<div class="form-group">
 						<input type="text" name="coordenadas" id="coordenadas"/>
 							<label class="radio-inline">
-								<input id="radioLargo" type="radio" name="radio" value="largo">largo</input>
+								<input id="radioLargo" type="radio" name="radioTamanio" value="largo">largo</input>
 							</label>
 							</label>
-								<input id="radioChico" type="radio" name="radio" value="chico">chico</input>
+								<input id="radioChico" type="radio" name="radioTamanio" value="chico">chico</input>
 							</label>
 					</div>
 						<input class="btn btn-success" type="submit" value="Enviar Coordenadas" id="crearBarco"/>			
 			</form>
 			<% end %>
 
-	<div>    	
-    	<form class="form-inline" method="POST" action="posicionVacia">
-			<%= csrf_token_field %>
-			<label for="exampleInputEmail3">Coordenada Vacia?</label>
-			<input type="text" name="coord" id="coord" placeholder="Coordenadas"/>
-    		<input class="btn btn-success" type="submit" value="Preguntar Posicion" id="pregunta" placeholder="Coordenadas"/>
-    	</form>
-    		<label for="exampleInputEmail3">Respuesta -> <%= @respuesta%></label> 
-    </div>
+	<div>  
+		<%if !session[:tablero].nil?%>  	
+    		<form class="form-inline" method="POST" action="posicionVacia">
+				<%= csrf_token_field %>
+				<label for="exampleInputEmail3">Coordenada Vacia?</label>
+				<input type="text" name="coord" id="coord" placeholder="Coordenadas"/>
+    			<input class="btn btn-success" type="submit" value="Preguntar Posicion"
+    			 id="pregunta" placeholder="Coordenadas"/>
+    		</form>
+    			<label for="exampleInputEmail3">Respuesta -> <%= @respuesta%></label> 
+   			<% end %>
+   	</div>
 
 
 	<div>
 	<br/>
-	<div align="center">
-		<% if !session[:tablero].nil? %>
-		<table border="1"  class="table table-striped">
-			<% for i in 1..session[:alto].to_i %>
-			<tr>
-				<% for j in 1..session[:ancho].to_i %>
-				<td>
-					<label label for="exampleInputEmail3"><%= session[:tablero].mapa[i-1][j-1] %></label>
-				</td>
+
+
+	<div class="container">
+		<div class="row">
+			<% if !session[:tablero].nil? %>
+			<div class="col-md-4" align="left">
+				<form class="form-inline" method="POST" action="dispararEn">
+					<%= csrf_token_field %>
+					<label for="exampleInputEmail3">Disparar en coordenadas:</label>
+					<input  class="form-control" type="text" name="coordDisparo" id="coordDisparo"/>
+    				<input  class="btn btn-danger" type="submit" value="Disparar" id="disparo"/>
+			</div>
+			<div class="col-md-8" >
+				<table border="1"  class="tablero">
+					<% for i in 0..( (session[:ancho].to_i)-1) %>
+					<tr>
+						<% for j in 0..( (session[:alto].to_i)-1) %>
+						<td>
+							<label label for="exampleInputEmail3"><%= session[:tablero].mapa[j][i] %></label>
+						</td>
+						<% end %>
+					</tr>
+					<% end %>
 				<% end %>
-			</tr>
-			<% end %>
-		<% end %>
-		</table>
-	<div>
+				</table>
+			<div>
+		</div>
+	</div>
 
 	<div align="left">
 		<% if !session[:errores].nil? %>

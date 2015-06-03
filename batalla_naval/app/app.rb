@@ -15,6 +15,7 @@ module Battleship
     session[:tablero] = nil
     session[:alto] = nil
     session[:ancho] = nil
+    session[:errores] = nil
     render 'batalla/inicio'
   end
   
@@ -46,12 +47,20 @@ module Battleship
 
 
    post 'posicionVacia' do
-      coords = params[:coord]
-      @tablero = session[:tablero]
-      @respuesta = @tablero.posicionVacia(coords).to_s
-      session[:tablero] = @tablero
-      render 'batalla/inicio'
-    end
+    coords = params[:coord]
+    @tablero = session[:tablero]
+    @respuesta = @tablero.posicionVacia(coords).to_s
+    session[:tablero] = @tablero
+    render 'batalla/inicio'
+  end
+
+  post 'dispararEn' do
+    @coordenadas = params[:coordDisparo]
+    @tablero = session[:tablero]
+    informe = @tablero.dispararEn(@coordenadas)
+    session[:tablero] = @tablero
+    render 'batalla/inicio'
+  end
 
     ##
     # Caching support
