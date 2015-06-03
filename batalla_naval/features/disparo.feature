@@ -20,7 +20,7 @@ Scenario: Shoot and hit
 @wip
 Scenario: Shoot and sink
 	Given I shoot the positions "3:4"
-    Then I get "hit"
-	And I shoot to position “3:3”
-    Then I get "sink"
+  Then I get "hit"
+	And I shoot to position "3:3"
+  Then I get "sink"
 
