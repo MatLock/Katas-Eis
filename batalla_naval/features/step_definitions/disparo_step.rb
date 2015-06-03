@@ -37,3 +37,12 @@ end
 Then(/^I got "(.*?)"$/) do |hit|
   page.should have_content(hit)
 end
+
+Given(/^I shoot the positions "(.*?)"$/) do |coord|
+  fill_in(:coordDisparo,:with => coord)
+  click_button "disparo"
+end
+
+Then(/^this time I got "(.*?)"$/) do |sink|
+  page.should have_content(sink)
+end

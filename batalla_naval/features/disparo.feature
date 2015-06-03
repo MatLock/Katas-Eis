@@ -17,7 +17,7 @@ Scenario: Shoot and hit
 	Given I shoot to position "3:3" and assert the hit
 	Then I got "hit"
 
-@wip
+
 Scenario: Shoot and sink
 	Given I shoot the positions "3:4"
   Then I get "hit"
