@@ -64,6 +64,10 @@ class Tablero
 
 	def efectuarDisparo(x,y)
 		resultado = mapa[x][y].recibirDisparo()	
+		if resultado.eql?("hit")
+			mapa[x][y] = "hit"
+		end
+		
 		return resultado
 	end
 
